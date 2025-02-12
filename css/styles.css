@@ -1,154 +1,24 @@
-/* Farben und Themes */
-:root {
-  --bg-dark: #121212;
-  --bg-light: #ffffff;
-  --text-dark: #ffffff;
-  --text-light: #000000;
-  --primary-color: #0078d7;
-  --secondary-color: #005bb5;
-}
+    /* Automatisch den Dark Mode aktivieren, wenn das System es bevorzugt */
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: #121212 !important;
+        color: #e0e0e0 !important;
+      }
+      
+      /* Beispiel: Angepasste Navbar im Dark Mode */
+      .navbar {
+        background-color: #333 !important;
+      }
+      
+      /* Beispiel: Buttons im Dark Mode */
+      .btn-primary {
+        background-color: #444 !important;
+        border-color: #555 !important;
+      }
 
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: var(--bg-light);
-  color: var(--text-light);
-  transition: background-color 0.3s, color 0.3s;
-}
-
-body.dark-mode {
-  background-color: var(--bg-dark);
-  color: var(--text-dark);
-}
-
-/* Header */
-header {
-  background-color: var(--primary-color);
-  color: white;
-  padding: 1rem;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-.header-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.logo {
-  height: 40px;
-}
-
-.site-name {
-  margin: 0 1rem;
-  font-size: 1.5rem;
-}
-
-nav {
-  position: relative;
-}
-
-.menu {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  gap: 1rem;
-}
-
-.menu a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  color: white;
-  font-size: 1.5rem;
-  cursor: pointer;
-}
-
-/* Main Content */
-main {
-  padding: 2rem;
-}
-
-h2 {
-  margin-top: 0;
-}
-
-/* Projekte und Links */
-.project, .link {
-  margin: 2rem 0;
-  padding: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: var(--bg-dark);
-  transition: background-color 0.3s, border-color 0.3s;
-}
-
-.project:hover, .link:hover {
-  background-color: var(--primary-color);
-  border-color: var(--primary-color);
-  color: var(--bg-dark);
-}
-
-.project h3, .link h3 {
-  margin-top: 0;
-}
-
-.button {
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  color: white;
-  background-color: var(--primary-color);
-  text-decoration: none;
-  border-radius: 5px;
-  transition: background-color 0.3s;
-}
-
-.button:hover {
-  background-color: var(--secondary-color);
-}
-
-/* Footer */
-footer {
-  text-align: center;
-  padding: 1rem;
-  background-color: var(--primary-color);
-  color: white;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-}
-
-/* Mobile View */
-@media (max-width: 768px) {
-  .menu {
-    display: none;
-    flex-direction: column;
-    background-color: var(--primary-color);
-    position: absolute;
-    right: 0;
-    top: 60px;
-    width: 200px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-  }
-
-  .menu.open {
-    display: flex;
-  }
-
-  .menu-toggle {
-    display: block;
-  }
-
-  .site-name {
-    display: none;
-  }
-}
+      .list-group-item {
+        background-color: #1e1e1e !important;
+        color: #e0e0e0 !important;
+        border-color: #333 !important;
+      }
+    }
