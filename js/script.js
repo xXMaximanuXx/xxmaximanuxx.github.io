@@ -1,22 +1,14 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const toggleButton = document.querySelector(".menu-toggle");
-  const menu = document.querySelector(".menu");
-
-  // Menü öffnen/schließen
-  toggleButton.addEventListener("click", () => {
-    menu.classList.toggle("open");
-  });
-
-  // Dark Mode basierend auf den Systemeinstellungen
-  const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
-
-  if (prefersDarkScheme.matches) {
-    document.body.classList.add("dark-mode");
-  }
-
-  // Optional: Dark Mode manuell aktivieren/deaktivieren (falls gewünscht)
-  // const toggleDarkMode = document.querySelector(".dark-mode-toggle");
-  // toggleDarkMode.addEventListener("click", () => {
-  //   document.body.classList.toggle("dark-mode");
-  // });
-});
+async function includeHTML() {
+    const elements = document.querySelectorAll("[data-include]");
+    for (const el of elements) {
+        const file = el.getAttribute("data-include");
+        try {
+            const response = await fetch(file);
+            if (!response.ok) throw new Error("Datei nicht gefunden: " + file);
+            el.innerHTML = await response.text();
+        } catch (error) {
+            console.error(error);
+        }
+    }
+}
+includeHTML();
